@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -7,6 +9,22 @@ import java.util.stream.Stream;
 import static java.util.Arrays.stream;
 
 public class Java8Test {
+    private static final List a = new ArrayList();
+    static {
+        a.add(1);
+        a.add(30);
+    }
+    static List getA() {
+        return a;
+    }
+
+    public static int go() {
+        return s();
+    }
+    private static int s() {
+        return 1;
+    }
+
     public static void main(String[] args) {
 
         A a = String::length;
@@ -33,8 +51,13 @@ public class Java8Test {
 
         ManyArgs manyArgsFunction = (c , b, d) -> c + b.length() + Float.valueOf(d).intValue();
         manyArgsFunction.valueB(1, "23", 47);
+
     }
     interface  A {
+        private void in() {
+            return;
+        }
+
         int valueA(String s);
     }
 
