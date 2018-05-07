@@ -10,9 +10,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Java9Test extends Java8Test{
+public class Java9Test extends Java8Test {
     static Pair p = new Pair(1, 2);
-
 
 
     private int s() {
@@ -41,7 +40,7 @@ public class Java9Test extends Java8Test{
         System.getLogger("Simpe").log(System.Logger.Level.INFO, "12", new Exception());
         try {
             Class.forName("sun.reflect.");
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -60,22 +59,22 @@ public class Java9Test extends Java8Test{
 
     public static double getProcessCpuLoad() throws Exception {
 
-        MBeanServer mbs    = ManagementFactory.getPlatformMBeanServer();
-        ObjectName name    = ObjectName.getInstance("java.lang:type=OperatingSystem");
-        AttributeList list = mbs.getAttributes(name, new String[]{ "ProcessCpuLoad" });
+        MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        ObjectName name = ObjectName.getInstance("java.lang:type=OperatingSystem");
+        AttributeList list = mbs.getAttributes(name, new String[]{"ProcessCpuLoad"});
 
         if (list.isEmpty()) {
             return Double.NaN;
         }
 
-        Attribute att = (Attribute)list.get(0);
-        Double value  = (Double)att.getValue();
+        Attribute att = (Attribute) list.get(0);
+        Double value = (Double) att.getValue();
 
         // usually takes a couple of seconds before we get real values
         if (value == -1.0) {
             return Double.NaN;
         }
         // returns a percentage value with 1 decimal point precision
-        return ((int)(value * 1000) / 10.0);
+        return ((int) (value * 1000) / 10.0);
     }
 }

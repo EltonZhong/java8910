@@ -10,10 +10,12 @@ import static java.util.Arrays.stream;
 
 public class Java8Test {
     private static final List a = new ArrayList();
+
     static {
         a.add(1);
         a.add(30);
     }
+
     static List getA() {
         return a;
     }
@@ -21,6 +23,7 @@ public class Java8Test {
     public static int go() {
         return s();
     }
+
     private static int s() {
         return 1;
     }
@@ -46,14 +49,15 @@ public class Java8Test {
         System.out.println(predicate.or(predicate1).test("length"));
 
 
-        Stream<String> stringStream = Arrays.stream(new String[] {"1", "2", "333333"});
+        Stream<String> stringStream = Arrays.stream(new String[]{"1", "2", "333333"});
         stringStream.mapToInt(str -> str.length()).forEach(inte -> System.out.println(inte));
 
-        ManyArgs manyArgsFunction = (c , b, d) -> c + b.length() + Float.valueOf(d).intValue();
+        ManyArgs manyArgsFunction = (c, b, d) -> c + b.length() + Float.valueOf(d).intValue();
         manyArgsFunction.valueB(1, "23", 47);
 
     }
-    interface  A {
+
+    interface A {
         private void in() {
             return;
         }
