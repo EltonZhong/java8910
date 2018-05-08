@@ -1,4 +1,4 @@
-import javafx.util.Pair;
+//import javafx.util.Pair;
 
 import javax.management.Attribute;
 import javax.management.AttributeList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Java9Test extends Java8Test {
-    static Pair p = new Pair(1, 2);
+//    static Pair p = new Pair(1, 2);
 
 
     private int s() {
@@ -20,7 +20,7 @@ public class Java9Test extends Java8Test {
 
 
     public static void main(String[] args) {
-        System.out.println(p);
+//        System.out.println(p);
         try {
             Field a1 = Java8Test.class.getDeclaredField("a");
             a1.setAccessible(true);
