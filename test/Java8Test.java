@@ -55,6 +55,21 @@ public class Java8Test {
         ManyArgs manyArgsFunction = (c, b, d) -> c + b.length() + Float.valueOf(d).intValue();
         manyArgsFunction.valueB(1, "23", 47);
 
+
+    }
+
+    /**
+     * Strem 的性能优化
+     * @param args
+     */
+    public static void main2(String[] args) {
+        Arrays.stream(new int[]{1, 2, 3}).map(a -> {
+            System.out.println(a + "map");
+            return a;
+        }).filter(a -> {
+            System.out.println(a + "filter");
+            return a > 0;
+        }).findAny().orElse(10);
     }
 
     interface A {
